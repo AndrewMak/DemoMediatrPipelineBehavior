@@ -18,7 +18,7 @@
             _mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> AtualizarDadosCadastro(string id, string endereco, decimal numero)
         {
