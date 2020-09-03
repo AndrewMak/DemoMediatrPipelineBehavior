@@ -1,6 +1,8 @@
 namespace Demo.MediatRPipelineBehavior
 {
+    using Demo.MediatRPipelineBehavior.Domain.interfaces;
     using Demo.MediatRPipelineBehavior.Extensions;
+    using Demo.MediatRPipelineBehavior.Infra.Data.Repositories;
     using FluentValidation;
     using MediatR;
     using Microsoft.AspNetCore.Builder;
@@ -27,6 +29,8 @@ namespace Demo.MediatRPipelineBehavior
         {
             services.AddSwagger();
             AddMediatr(services);
+            
+            services.AddScoped<IMovieRepository, MovieRepository>();
 
             services.AddControllers();
         }
