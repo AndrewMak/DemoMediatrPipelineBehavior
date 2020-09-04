@@ -24,6 +24,7 @@
 
             var filme = await _movieRepository.ObterPorId(request.Id);
 
+            //aqui por exemplo vc pode verificar se o filme está com atraso de devolução entre outras regras.
             if (filme is null)
                 response.AddError("O filme não encontrado");
 
