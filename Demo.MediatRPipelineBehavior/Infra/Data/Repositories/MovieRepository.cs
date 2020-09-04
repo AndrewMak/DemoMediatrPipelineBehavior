@@ -25,7 +25,7 @@ namespace Demo.MediatRPipelineBehavior.Infra.Data.Repositories
         public async Task Atualizar(Movie movie) => await ExecutarAtualizar(movie);
 
         public async Task<Movie> ObterPorId(string id)
-            => await GetConnection().QueryFirstOrDefaultAsync<Movie>("", new { id });
+            => await GetConnection().QueryFirstOrDefaultAsync<Movie>("select * from movie where id = @id", new { id });
 
         private async Task ExecutarRegistrar(Movie movie)
         {

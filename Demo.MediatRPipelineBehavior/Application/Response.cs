@@ -1,6 +1,8 @@
 ﻿namespace Demo.MediatRPipelineBehavior.Application
 {
     using System.Collections.Generic;
+    using System.Linq;
+
     public class Response
     {
         private readonly IList<string> _messages = new List<string>();
@@ -17,5 +19,6 @@
             _messages.Add(message);
             return this;
         }
+        public bool HasMessages => _messages.Any();
     }
 }

@@ -31,5 +31,19 @@
 
             return Ok(response.Result);
         }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> ObterFilmePorId(string id)
+        {
+            var response = await _mediator.Send(new ObterFilmesPorIdQuery(id));
+
+            if (response.HasMessages)
+            {
+                return BadRequest(response.Errors);
+            }
+
+            return Ok(response.Result);
+        }
     }
 }
