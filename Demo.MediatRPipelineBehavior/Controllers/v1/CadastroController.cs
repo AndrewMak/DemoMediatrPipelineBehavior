@@ -36,13 +36,16 @@
         [Route("{id}")]
         public async Task<IActionResult> ObterFilmePorId(string id)
         {
+            //chama o handler desse obterfilmesporidquery -> ObterFilmePorIdHandler
             var response = await _mediator.Send(new ObterFilmesPorIdQuery(id));
 
+            //verifica se tem alguma mensagem de domininio para retornar pro usuario, por exemplo que o filme está com atraso de devolução.
             if (response.HasMessages)
             {
                 return BadRequest(response.Errors);
             }
 
+            
             return Ok(response.Result);
         }
     }
