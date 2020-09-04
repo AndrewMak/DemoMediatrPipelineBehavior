@@ -29,7 +29,7 @@ namespace Demo.MediatRPipelineBehavior
         {
             services.AddSwagger();
             AddMediatr(services);
-            
+            //todo repositorio tem que declarar a injeção de dependencia
             services.AddScoped<IMovieRepository, MovieRepository>();
 
             services.AddControllers();
